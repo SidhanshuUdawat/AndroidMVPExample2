@@ -10,7 +10,7 @@ interface RealmMVP {
 
     val realm: Realm
 
-    fun closeRealm(realm: Realm)
+    fun closeRealm(realm: Realm?)
 
     fun clearData()
 

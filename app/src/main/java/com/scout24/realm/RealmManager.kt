@@ -48,7 +48,7 @@ class RealmManager(private val context: Context) : RealmMVP {
     /**
      * Closes the Realm
      */
-    override fun closeRealm(realm: Realm) {
+    override fun closeRealm(realm: Realm?) {
         try {
             if (realm != null && !realm.isClosed) {
                 realm.close()

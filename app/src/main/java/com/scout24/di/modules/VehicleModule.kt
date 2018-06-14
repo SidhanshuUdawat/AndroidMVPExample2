@@ -4,6 +4,7 @@ import com.scout24.api.VehicleRequestsInterface
 import com.scout24.main.*
 import com.scout24.network.NetworkMonitorProvider
 import com.scout24.realm.RealmManager
+import com.scout24.sharedpref.SharedPreferencesProvider
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -26,8 +27,8 @@ class VehicleModule(val view: VehicleMvp.View) {
     }
 
     @Provides
-    fun providesLocalDataSource(realmManger: RealmManager): VehicleMvp.LocalDataSource {
-        return VehicleLocalDataSource(realmManger)
+    fun providesLocalDataSource(realmManger: RealmManager, pref: SharedPreferencesProvider): VehicleMvp.LocalDataSource {
+        return VehicleLocalDataSource(realmManger, pref)
     }
 
     @Provides

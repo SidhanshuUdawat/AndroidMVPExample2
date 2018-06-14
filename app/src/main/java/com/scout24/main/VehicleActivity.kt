@@ -97,10 +97,10 @@ class VehicleActivity : AppCompatActivity(), VehicleMvp.View {
         vehicleListAdapter.notifyItemRangeRemoved(0, previousSize)
     }
 
-    override fun updateList(vehicleViewModelList: List<ListItem>) {
+    override fun updateList(list: List<ListItem>) {
         val previousSize = vehicleList.size
-        vehicleList.addAll(previousSize, vehicleViewModelList)
-        vehicleListAdapter.notifyItemRangeInserted(previousSize, vehicleViewModelList.size)
+        vehicleList.addAll(previousSize, list)
+        vehicleListAdapter.notifyItemRangeInserted(previousSize, list.size)
     }
 
     override fun addItemToList(item: ListItem) {

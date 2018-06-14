@@ -69,7 +69,9 @@ class VehiclePresenter(val view: VehicleMvp.View, val interactor: VehicleMvp.Int
     }
 
     fun onRetryClicked() {
-
+        view.showProgress()
+        view.hideError()
+        getVehicles()
     }
 
     fun onVehicleClicked() {

@@ -21,7 +21,7 @@ class VehicleInteractor(private val remoteDataSource: VehicleMvp.RemoteDataSourc
                     }
 
             localDataSource.hasLocalData() -> localDataSource.getVehicles()
-            else -> Observable.empty()
+            else -> Observable.just(null)
         }
     }
 
