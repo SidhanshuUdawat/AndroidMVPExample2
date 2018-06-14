@@ -10,5 +10,5 @@ import rx.Observable
 interface VehicleRequestsInterface {
 
     @GET("/")
-    fun getVehicleList(): Observable<Vehicle>
+    fun getVehicleList(): Observable<List<Vehicle>>
 }

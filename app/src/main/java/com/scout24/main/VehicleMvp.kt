@@ -1,6 +1,8 @@
 package com.scout24.main
 
+import com.scout24.datasets.Vehicle
 import com.scout24.main.adapter.ListItem
+import rx.Observable
 
 
 /**
@@ -21,15 +23,18 @@ class VehicleMvp {
     }
 
     interface Interactor {
-
+        fun getVehicles(): Observable<List<Vehicle>>
     }
 
     interface RemoteDataSource {
-
+        fun getVehicles(): Observable<List<Vehicle>>
     }
 
     interface LocalDataSource {
-
+        fun hasLocalData(): Boolean
+        fun deleteLocalData()
+        fun storeVehicles(vehicle: Vehicle)
+        fun getVehicles(): Observable<List<Vehicle>>
     }
 
 }

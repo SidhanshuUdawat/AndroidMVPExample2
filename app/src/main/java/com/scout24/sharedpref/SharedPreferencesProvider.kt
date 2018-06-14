@@ -5,6 +5,6 @@ package com.scout24.sharedpref
  */
 
 interface SharedPreferencesProvider {
-    fun putData(key: String, data: Int)
-    fun getData(key: String): Int
+    fun putBooleanData(key: String, value: Boolean)
+    fun getBooleanData(key: String): Boolean
 }

@@ -11,17 +11,17 @@ import android.content.SharedPreferences
 class MySharedPreferences(private val sharedPreferences: SharedPreferences) : SharedPreferencesProvider {
 
     /**
-     * Inserting data of type int
+     * Inserting value of type boolean
      */
-    override fun putData(key: String, data: Int) {
-        sharedPreferences.edit().putInt(key, data).apply()
+    override fun putBooleanData(key: String, value: Boolean) {
+        sharedPreferences.edit().putBoolean(key, value).apply()
     }
 
     /**
-     * Reading data of type int
+     * Reading value of type boolean
      */
-    override fun getData(key: String): Int {
-        return sharedPreferences.getInt(key, 0)
+    override fun getBooleanData(key: String): Boolean {
+        return sharedPreferences.getBoolean(key, false)
     }
 
 }
