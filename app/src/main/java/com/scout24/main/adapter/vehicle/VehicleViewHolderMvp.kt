@@ -10,5 +10,7 @@ class VehicleViewHolderMvp {
         fun setFuelType(fuelType: String)
         fun setVehicleImage(vehicleImageUrl: String)
         fun setVehicleImage(vehicleImageId: Int)
+        fun showProgress()
+        fun hideProgress()
     }
 }

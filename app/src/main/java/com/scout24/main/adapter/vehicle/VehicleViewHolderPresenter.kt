@@ -18,7 +18,7 @@ class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
         if (vehicleImage.isNotEmpty()) {
             view.setVehicleImage(vehicleImage)
         } else {
-            view.setVehicleImage(R.drawable.no_image_available)
+            showFallBackImage()
         }
         view.setTitle(vehicle.make + " " + vehicle.model)
         view.setPrice(vehicle.price.toString())
@@ -36,5 +36,18 @@ class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
         } else {
             ""
         }
+    }
+
+    private fun showFallBackImage() {
+        view.setVehicleImage(R.drawable.no_image_available)
+        view.hideProgress()
+    }
+
+    fun onImageLoadingSuccess() {
+        view.hideProgress()
+    }
+
+    fun onImageLoadingFailed() {
+        view.hideProgress()
     }
 }
