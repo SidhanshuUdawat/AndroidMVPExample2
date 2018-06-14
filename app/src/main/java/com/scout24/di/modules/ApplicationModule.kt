@@ -1,0 +1,27 @@
+package com.scout24.di.modules
+
+import android.app.Application
+import android.content.Context
+import dagger.Module
+import dagger.Provides
+import javax.inject.Singleton
+
+/**
+ * Created by Sid on 14/06/2018.
+ */
+
+@Module
+class ApplicationModule(private val app: Application) {
+
+    @Provides
+    @Singleton
+    fun provideApplication(): Application {
+        return app
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideApplicationContext(): Context {
+        return app.applicationContext
+    }
+}
