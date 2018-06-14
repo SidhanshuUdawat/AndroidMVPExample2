@@ -32,4 +32,5 @@ ext {
     rxandroidVersion = '1.2.1'
     retrofitVersion = '2.2.0'
     picasso = '2.71828'
+    picassoTransformation = '2.2.1'
 }

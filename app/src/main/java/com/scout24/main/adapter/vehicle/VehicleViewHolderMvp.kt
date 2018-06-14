@@ -9,5 +9,6 @@ class VehicleViewHolderMvp {
         fun setPrice(price: String)
         fun setFuelType(fuelType: String)
         fun setVehicleImage(vehicleImageUrl: String)
+        fun setVehicleImage(vehicleImageId: Int)
     }
 }

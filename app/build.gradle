@@ -55,6 +55,7 @@ dependencies {
 
     // Image Loading
     implementation "com.squareup.picasso:picasso:$picasso"
+    implementation "jp.wasabeef:picasso-transformations:$picassoTransformation"
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.2.0'
