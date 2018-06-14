@@ -55,8 +55,8 @@ class VehicleLocalDataSource(private val realmManager: RealmManager, private val
             val realmVehicleList = realm.where(RealmVehicle::class.java)?.findAll()
             realmVehicleList?.let { list ->
                 for (vehicle in list) {
-                    //val createVehicle = vehicle.asVehicleModel()
-                    //vehicleList.add(createVehicle)
+                    val createVehicle = vehicle.asVehicleModel()
+                    vehicleList.add(createVehicle)
                 }
             }
             return Observable.just(vehicleList)
