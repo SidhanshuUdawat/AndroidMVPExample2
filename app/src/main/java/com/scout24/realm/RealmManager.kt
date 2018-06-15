@@ -11,7 +11,7 @@ import io.realm.RealmConfiguration
  * A wrapper around Realm
  */
 
-class RealmManager(private val context: Context) : RealmMVP {
+class RealmManager(private val context: Context) : RealmMvp {
 
     lateinit var realmConfiguration: RealmConfiguration
 

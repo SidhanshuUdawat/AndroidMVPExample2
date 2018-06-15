@@ -6,7 +6,7 @@ import io.realm.Realm
  * Created by Sid on 14/06/2018.
  */
 
-interface RealmMVP {
+interface RealmMvp {
 
     val realm: Realm
 

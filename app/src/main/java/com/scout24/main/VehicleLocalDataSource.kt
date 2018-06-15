@@ -4,7 +4,7 @@ import com.scout24.datasets.Vehicle
 import com.scout24.model.RealmImage
 import com.scout24.model.RealmSeller
 import com.scout24.model.RealmVehicle
-import com.scout24.realm.RealmManager
+import com.scout24.realm.RealmMvp
 import com.scout24.sharedpref.SharedPreferencesProvider
 import io.realm.RealmList
 import rx.Observable
@@ -13,16 +13,22 @@ import rx.Observable
  * Created by Sid on 14/06/2018.
  */
 
-class VehicleLocalDataSource(private val realmManager: RealmManager, private val pref: SharedPreferencesProvider) : VehicleMvp.LocalDataSource {
+class VehicleLocalDataSource(private val realmManager: RealmMvp, private val pref: SharedPreferencesProvider) : VehicleMvp.LocalDataSource {
 
     companion object {
         const val IS_LOCAL_DATA_SAVED = "is_local_data_saved"
     }
 
+    /**
+     * It checks with the shared pref is local data is present or not
+     */
     override fun hasLocalData(): Boolean {
         return pref.getBooleanData(IS_LOCAL_DATA_SAVED)
     }
 
+    /**
+     * Deletes all the locally stored vehicles
+     */
     override fun deleteLocalData() {
         val realm = realmManager.realm
         try {
@@ -37,6 +43,10 @@ class VehicleLocalDataSource(private val realmManager: RealmManager, private val
         }
     }
 
+
+    /**
+     * Saves Vehicle
+     */
     override fun storeVehicles(vehicle: Vehicle) {
         val realmVehicleToStore = createRealmVehicle(vehicle)
         val realm = realmManager.realm
@@ -53,6 +63,9 @@ class VehicleLocalDataSource(private val realmManager: RealmManager, private val
         }
     }
 
+    /**
+     *  Reads for the locally saved vehicles and converts RealmVehicle to Vehicle
+     */
     override fun getVehicles(): Observable<List<Vehicle>> {
         val vehicleList = ArrayList<Vehicle>()
         val realm = realmManager.realm
@@ -70,6 +83,9 @@ class VehicleLocalDataSource(private val realmManager: RealmManager, private val
         }
     }
 
+    /**
+     * It converts Vehicle --> RealmVehicle
+     */
     private fun createRealmVehicle(vehicle: Vehicle): RealmVehicle {
         val modelline = vehicle.modelline ?: ""
         val firstRegistration = vehicle.firstRegistration ?: ""
