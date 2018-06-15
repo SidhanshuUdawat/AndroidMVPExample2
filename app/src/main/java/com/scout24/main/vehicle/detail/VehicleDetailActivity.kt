@@ -43,6 +43,7 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
         DaggerVehicleDetailComponent.builder()
                 .applicationBaseComponent(applicationComponent)
                 .vehicleDetailModule(VehicleDetailModule(this, vehicleId))
+                .build().inject(this)
         presenter.init()
     }
 
