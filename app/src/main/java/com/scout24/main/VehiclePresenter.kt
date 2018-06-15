@@ -14,7 +14,7 @@ import rx.subscriptions.CompositeSubscription
  * Fetches the vehicle data and processes it and passes to the View of displaying purpose.
  */
 
-class VehiclePresenter(val view: VehicleMvp.View, val interactor: VehicleMvp.Interactor) {
+class VehiclePresenter(private val view: VehicleMvp.View, private val interactor: VehicleMvp.Interactor) {
 
     private val compositeSubscription = CompositeSubscription()
 
@@ -86,7 +86,6 @@ class VehiclePresenter(val view: VehicleMvp.View, val interactor: VehicleMvp.Int
     }
 
     fun onRetryClicked() {
-        view.showProgress()
         view.hideError()
         getVehicles()
     }
