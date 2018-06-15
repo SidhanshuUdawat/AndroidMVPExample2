@@ -13,8 +13,10 @@ class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
         const val MAX_IMAGE_DIMEN = "640"
     }
 
+    lateinit var vehicle: Vehicle
+
     fun init(viewModel: VehicleViewModel) {
-        val vehicle = viewModel.vehicle
+        vehicle = viewModel.vehicle
         val vehicleImage = getVehicleImageUrl(vehicle)
         if (vehicleImage.isNotEmpty()) {
             view.setVehicleImage(vehicleImage)
@@ -54,5 +56,11 @@ class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
 
     fun onImageLoadingFailed() {
         view.hideProgress()
+    }
+
+    fun onContainerClicked() {
+        vehicle.let { vehicle ->
+            view.onContainerClicked(vehicle.id)
+        }
     }
 }

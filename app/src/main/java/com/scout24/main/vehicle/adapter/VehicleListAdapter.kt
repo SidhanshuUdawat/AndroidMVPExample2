@@ -21,7 +21,7 @@ class VehicleListAdapter(private val list: List<ListItem>, private val listener:
     }
 
     interface OnListInteraction {
-        fun onVehicleClicked()
+        fun onVehicleClicked(vehicleId: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,8 +29,8 @@ class VehicleListAdapter(private val list: List<ListItem>, private val listener:
             VEHICLE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.list_vehicle, parent, false)
                 VehicleViewHolder(view, object : VehicleViewHolder.OnVehicleViewHolderInteraction {
-                    override fun onVehicleClicked() {
-                        listener.onVehicleClicked()
+                    override fun onVehicleClicked(vehicleId: Int) {
+                        listener.onVehicleClicked(vehicleId)
                     }
                 })
             }

@@ -15,16 +15,17 @@ import java.lang.Exception
  * Loads the vehicle list elements
  */
 
-class VehicleViewHolder(itemView: View, val listener: OnVehicleViewHolderInteraction) : RecyclerView.ViewHolder(itemView), VehicleViewHolderMvp.View {
+class VehicleViewHolder(itemView: View, private val listener: OnVehicleViewHolderInteraction) : RecyclerView.ViewHolder(itemView), VehicleViewHolderMvp.View {
 
     interface OnVehicleViewHolderInteraction {
-        fun onVehicleClicked()
+        fun onVehicleClicked(vehicleId: Int)
     }
 
     private val presenter = VehicleViewHolderPresenter(this)
 
     fun init(vehicleViewModel: VehicleViewModel) {
         presenter.init(vehicleViewModel)
+        itemView.setOnClickListener { presenter.onContainerClicked() }
     }
 
     override fun setTitle(title: String) {
@@ -72,5 +73,9 @@ class VehicleViewHolder(itemView: View, val listener: OnVehicleViewHolderInterac
 
     override fun hideProgress() {
         itemView.progressBar.visibility = View.GONE
+    }
+
+    override fun onContainerClicked(vehicleId: Int) {
+        listener.onVehicleClicked(vehicleId)
     }
 }

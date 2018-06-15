@@ -80,18 +80,17 @@ class VehiclePresenter(private val view: VehicleMvp.View, private val interactor
         view.updateList(viewModelList)
     }
 
-
-    fun onDestroy() {
-
-    }
-
     fun onRetryClicked() {
         view.hideError()
         getVehicles()
     }
 
-    fun onVehicleClicked() {
+    fun onVehicleClicked(vehicleId: Int) {
+        view.showMoreDetails(vehicleId)
+    }
 
+    fun onDestroy() {
+        compositeSubscription.clear()
     }
 
 }

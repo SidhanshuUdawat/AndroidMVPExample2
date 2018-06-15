@@ -12,6 +12,7 @@ import com.scout24.di.modules.VehicleModule
 import com.scout24.main.vehicle.adapter.ListItem
 import com.scout24.main.vehicle.adapter.RecyclerViewDecorator
 import com.scout24.main.vehicle.adapter.VehicleListAdapter
+import com.scout24.main.vehicle.detail.VehicleDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -40,7 +41,7 @@ class VehicleActivity : AppCompatActivity(), VehicleMvp.View {
     }
 
     /**
-     * Application component is inject along with vehicle module.
+     * Application component is injected along with vehicle module.
      */
     private fun injectDependencies() {
         val applicationComponent = (applicationContext as Scout24Application).getApplicationComponent()
@@ -58,8 +59,8 @@ class VehicleActivity : AppCompatActivity(), VehicleMvp.View {
         vehicleList = ArrayList()
 
         val listener = object : VehicleListAdapter.OnListInteraction {
-            override fun onVehicleClicked() {
-                presenter.onVehicleClicked()
+            override fun onVehicleClicked(vehicleId: Int) {
+                presenter.onVehicleClicked(vehicleId)
             }
         }
 
@@ -121,5 +122,10 @@ class VehicleActivity : AppCompatActivity(), VehicleMvp.View {
         val oldSize = vehicleList.size
         vehicleList.remove(item)
         vehicleListAdapter.notifyItemRemoved(oldSize)
+    }
+
+    override fun showMoreDetails(vehicleId: Int) {
+        val intent = VehicleDetailActivity.getIntent(this, vehicleId)
+        startActivity(intent)
     }
 }

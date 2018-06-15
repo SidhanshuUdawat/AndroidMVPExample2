@@ -13,5 +13,5 @@ import dagger.Component
 @PerActivity
 @Component(dependencies = [(ApplicationBaseComponent::class)], modules = [(VehicleModule::class)])
 interface VehicleComponent {
-    fun inject(eventCamera: VehicleActivity)
+    fun inject(vehicleActivity: VehicleActivity)
 }

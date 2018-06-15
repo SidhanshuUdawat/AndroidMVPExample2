@@ -13,5 +13,6 @@ class VehicleViewHolderMvp {
         fun setVehicleImage(vehicleImageId: Int)
         fun showProgress()
         fun hideProgress()
+        fun onContainerClicked(vehicleId: Int)
     }
 }

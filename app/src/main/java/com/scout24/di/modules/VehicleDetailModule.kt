@@ -15,7 +15,7 @@ import dagger.Provides
  */
 
 @Module
-class VehicleDetailsModule(private val view: VehicleDetailMvp.View, private val vehicleId: Int) {
+class VehicleDetailModule(private val view: VehicleDetailMvp.View, private val vehicleId: Int) {
 
     @Provides
     fun providesLocalDataSource(realmManger: RealmManager, pref: SharedPreferencesProvider): VehicleMvp.LocalDataSource {

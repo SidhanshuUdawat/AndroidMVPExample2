@@ -20,6 +20,7 @@ class VehicleMvp {
         fun updateList(list: List<ListItem>)
         fun addItemToList(item: ListItem)
         fun removeItemFromList(item: ListItem)
+        fun showMoreDetails(vehicleId: Int)
     }
 
     interface Interactor {
