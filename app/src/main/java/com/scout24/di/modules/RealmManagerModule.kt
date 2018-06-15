@@ -8,6 +8,8 @@ import javax.inject.Singleton
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Provides single instance of Realm Manager which is a wrapper around realm.
  */
 
 @Module

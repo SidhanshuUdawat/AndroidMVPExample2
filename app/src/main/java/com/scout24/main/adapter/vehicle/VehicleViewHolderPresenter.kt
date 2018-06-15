@@ -6,6 +6,7 @@ import com.scout24.datasets.Vehicle
 /**
  * Created by Sid on 14/06/2018.
  */
+
 class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
 
     companion object {

@@ -10,16 +10,25 @@ import rx.subscriptions.CompositeSubscription
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Fetches the vehicle data and processes it and passes to the View of displaying purpose.
  */
 
 class VehiclePresenter(val view: VehicleMvp.View, val interactor: VehicleMvp.Interactor) {
 
     private val compositeSubscription = CompositeSubscription()
 
+    /**
+     * Initial setup
+     */
     fun init() {
         getVehicles()
     }
 
+    /**
+     * This asks the Interactor for the Vehicle data.
+     * Presenter doesn't care from where the data is coming from may it be remote or local.
+     */
     private fun getVehicles() {
         view.showProgress()
         compositeSubscription.add(interactor.getVehicles()
@@ -40,6 +49,11 @@ class VehiclePresenter(val view: VehicleMvp.View, val interactor: VehicleMvp.Int
                 }))
     }
 
+    /**
+     * This will be called in 2 scenarios
+     * 1. App starts for the first time and there is no internet connection and no local data.
+     * 2. Or API sends data which is not suppose to be null.
+     */
     fun onFetchingVehiclesFailed() {
         view.hideProgress()
         view.showError()
@@ -54,6 +68,9 @@ class VehiclePresenter(val view: VehicleMvp.View, val interactor: VehicleMvp.Int
         }
     }
 
+    /**
+     * This converts the API Vehicle data model to Vehicle view model.
+     */
     private fun processVehicles(vehicles: List<Vehicle>) {
         val viewModelList = ArrayList<ListItem>()
         for (vehicle in vehicles) {

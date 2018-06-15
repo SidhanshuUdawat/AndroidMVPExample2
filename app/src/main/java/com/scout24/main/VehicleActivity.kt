@@ -17,6 +17,8 @@ import javax.inject.Inject
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Starting activity of the app, it triggers the injection of necessary dependencies down the layer.
  */
 
 class VehicleActivity : AppCompatActivity(), VehicleMvp.View {
@@ -33,10 +35,13 @@ class VehicleActivity : AppCompatActivity(), VehicleMvp.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setErrorRetryClickListener()
-        setupRepoList()
+        setupVehicleList()
         injectDependencies()
     }
 
+    /**
+     * Application component is inject along with vehicle module.
+     */
     private fun injectDependencies() {
         val applicationComponent = (applicationContext as Scout24Application).getApplicationComponent()
         DaggerVehicleComponent.builder()
@@ -46,7 +51,10 @@ class VehicleActivity : AppCompatActivity(), VehicleMvp.View {
         presenter.init()
     }
 
-    fun setupRepoList() {
+    /**
+     * Initial setup of empty vehicle list
+     */
+    private fun setupVehicleList() {
         vehicleList = ArrayList()
 
         val listener = object : VehicleListAdapter.OnListInteraction {

@@ -8,6 +8,8 @@ import javax.inject.Singleton
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Provides singleton instance of Application and Application Context
  */
 
 @Module

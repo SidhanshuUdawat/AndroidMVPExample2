@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        tools:context="com.payconiqtask.main.MainActivity" />
+        tools:context="com.scout24.main.VehicleActivity" />
 
     <ProgressBar
         android:id="@+id/progressView"

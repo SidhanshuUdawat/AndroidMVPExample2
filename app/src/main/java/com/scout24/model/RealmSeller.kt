@@ -7,6 +7,7 @@ import io.realm.annotations.Ignore
 /**
  * Created by Sid on 14/06/2018.
  */
+
 open class RealmSeller(var type: String = "",
                        var phone: String = "",
                        var city: String = "") : RealmObject() {

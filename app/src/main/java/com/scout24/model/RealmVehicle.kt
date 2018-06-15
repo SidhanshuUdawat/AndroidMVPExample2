@@ -12,6 +12,7 @@ import kotlin.collections.ArrayList
 /**
  * Created by Sid on 14/06/2018.
  */
+
 open class RealmVehicle(
         var id: Int = 0,
         var make: String = "",

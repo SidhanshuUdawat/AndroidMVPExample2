@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.scout24.R
 import com.squareup.picasso.Callback
-import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.list_vehicle.view.*
@@ -12,7 +11,10 @@ import java.lang.Exception
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Loads the vehicle list elements
  */
+
 class VehicleViewHolder(itemView: View, val listener: OnVehicleViewHolderInteraction) : RecyclerView.ViewHolder(itemView), VehicleViewHolderMvp.View {
 
     interface OnVehicleViewHolderInteraction {
@@ -21,8 +23,8 @@ class VehicleViewHolder(itemView: View, val listener: OnVehicleViewHolderInterac
 
     private val presenter = VehicleViewHolderPresenter(this)
 
-    fun init(repositoryViewModel: VehicleViewModel) {
-        presenter.init(repositoryViewModel)
+    fun init(vehicleViewModel: VehicleViewModel) {
+        presenter.init(vehicleViewModel)
     }
 
     override fun setTitle(title: String) {

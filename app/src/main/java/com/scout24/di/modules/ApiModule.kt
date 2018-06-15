@@ -11,6 +11,8 @@ import javax.inject.Singleton
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Provides single instance of Gson and Retrofit
  */
 
 @Module

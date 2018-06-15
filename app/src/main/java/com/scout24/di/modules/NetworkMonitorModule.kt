@@ -9,6 +9,8 @@ import javax.inject.Singleton
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Provides single instance of Network monitoring class
  */
 
 @Module

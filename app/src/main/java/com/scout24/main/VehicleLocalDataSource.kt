@@ -12,6 +12,7 @@ import rx.Observable
 /**
  * Created by Sid on 14/06/2018.
  */
+
 class VehicleLocalDataSource(private val realmManager: RealmManager, private val pref: SharedPreferencesProvider) : VehicleMvp.LocalDataSource {
 
     companion object {

@@ -11,6 +11,8 @@ import retrofit2.Retrofit
 
 /**
  * Created by Sid on 14/06/2018.
+ *
+ * Injects all the required dependencies in the designated layers.
  */
 
 @Module
