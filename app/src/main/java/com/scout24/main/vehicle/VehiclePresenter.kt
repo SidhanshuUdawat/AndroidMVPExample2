@@ -1,8 +1,8 @@
-package com.scout24.main
+package com.scout24.main.vehicle
 
 import com.scout24.datasets.Vehicle
-import com.scout24.main.adapter.ListItem
-import com.scout24.main.adapter.vehicle.VehicleViewModel
+import com.scout24.main.vehicle.adapter.ListItem
+import com.scout24.main.vehicle.adapter.vehicle.VehicleViewModel
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers

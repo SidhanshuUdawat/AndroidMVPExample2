@@ -1,6 +1,8 @@
 package com.scout24.main
 
 import com.scout24.api.VehicleRequestsInterface
+import com.scout24.main.vehicle.VehicleMvp
+import com.scout24.main.vehicle.VehicleRemoteDataSource
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.*

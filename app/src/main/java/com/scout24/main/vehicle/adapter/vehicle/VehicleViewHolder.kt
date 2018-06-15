@@ -1,4 +1,4 @@
-package com.scout24.main.adapter.vehicle
+package com.scout24.main.vehicle.adapter.vehicle
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -41,7 +41,7 @@ class VehicleViewHolder(itemView: View, val listener: OnVehicleViewHolderInterac
 
     override fun setVehicleImage(vehicleImageUrl: String) {
         val imageCorner = itemView.context.resources.getDimension(R.dimen.rounded_image_corners).toInt()
-        val transformation = RoundedCornersTransformation(imageCorner, 0)
+        val transformation = RoundedCornersTransformation(imageCorner, 0, RoundedCornersTransformation.CornerType.LEFT)
         Picasso.get()
                 .load(vehicleImageUrl)
                 .transform(transformation)

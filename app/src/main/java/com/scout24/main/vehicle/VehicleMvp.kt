@@ -1,7 +1,7 @@
-package com.scout24.main
+package com.scout24.main.vehicle
 
 import com.scout24.datasets.Vehicle
-import com.scout24.main.adapter.ListItem
+import com.scout24.main.vehicle.adapter.ListItem
 import rx.Observable
 
 

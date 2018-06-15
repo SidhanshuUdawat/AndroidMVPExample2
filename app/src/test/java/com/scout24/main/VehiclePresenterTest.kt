@@ -3,6 +3,8 @@ package com.scout24.main
 import com.scout24.datasets.Images
 import com.scout24.datasets.Seller
 import com.scout24.datasets.Vehicle
+import com.scout24.main.vehicle.VehicleMvp
+import com.scout24.main.vehicle.VehiclePresenter
 import org.junit.Before
 import org.junit.Test
 import org.mockito.ArgumentMatchers

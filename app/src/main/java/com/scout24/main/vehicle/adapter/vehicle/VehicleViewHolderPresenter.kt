@@ -1,4 +1,4 @@
-package com.scout24.main.adapter.vehicle
+package com.scout24.main.vehicle.adapter.vehicle
 
 import com.scout24.R
 import com.scout24.datasets.Vehicle
@@ -10,7 +10,7 @@ import com.scout24.datasets.Vehicle
 class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
 
     companion object {
-        const val MAX_IMAGE_DIME = "1600"
+        const val MAX_IMAGE_DIME = "640"
     }
 
     fun init(viewModel: VehicleViewModel) {

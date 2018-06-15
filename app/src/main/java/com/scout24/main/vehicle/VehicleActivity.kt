@@ -1,4 +1,4 @@
-package com.scout24.main
+package com.scout24.main.vehicle
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,9 +9,9 @@ import com.scout24.R
 import com.scout24.Scout24Application
 import com.scout24.di.components.DaggerVehicleComponent
 import com.scout24.di.modules.VehicleModule
-import com.scout24.main.adapter.ListItem
-import com.scout24.main.adapter.RecyclerViewDecorator
-import com.scout24.main.adapter.VehicleListAdapter
+import com.scout24.main.vehicle.adapter.ListItem
+import com.scout24.main.vehicle.adapter.RecyclerViewDecorator
+import com.scout24.main.vehicle.adapter.VehicleListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 

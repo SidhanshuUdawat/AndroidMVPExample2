@@ -1,4 +1,4 @@
-package com.scout24.main.adapter.vehicle
+package com.scout24.main.vehicle.adapter.vehicle
 
 /**
  * Created by Sid on 14/06/2018.

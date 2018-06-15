@@ -1,7 +1,7 @@
 package com.scout24.di.modules
 
 import com.scout24.api.VehicleRequestsInterface
-import com.scout24.main.*
+import com.scout24.main.vehicle.*
 import com.scout24.network.NetworkMonitorProvider
 import com.scout24.realm.RealmManager
 import com.scout24.sharedpref.SharedPreferencesProvider

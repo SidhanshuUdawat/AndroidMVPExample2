@@ -1,5 +1,7 @@
 package com.scout24.main
 
+import com.scout24.main.vehicle.VehicleInteractor
+import com.scout24.main.vehicle.VehicleMvp
 import com.scout24.network.NetworkMonitorProvider
 import org.junit.Before
 import org.junit.Test

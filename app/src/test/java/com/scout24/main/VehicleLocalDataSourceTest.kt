@@ -1,10 +1,11 @@
 package com.scout24.main
 
+import com.scout24.main.vehicle.VehicleLocalDataSource
+import com.scout24.main.vehicle.VehicleMvp
 import com.scout24.realm.RealmMvp
 import com.scout24.sharedpref.SharedPreferencesProvider
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentMatchers
 import org.mockito.Mockito.*
 
 /**

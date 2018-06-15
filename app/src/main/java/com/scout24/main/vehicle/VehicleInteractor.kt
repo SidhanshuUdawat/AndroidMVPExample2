@@ -1,4 +1,4 @@
-package com.scout24.main
+package com.scout24.main.vehicle
 
 import com.scout24.datasets.Vehicle
 import com.scout24.network.NetworkMonitorProvider
