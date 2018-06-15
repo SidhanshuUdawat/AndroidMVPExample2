@@ -58,7 +58,12 @@ class VehicleViewHolder(itemView: View, val listener: OnVehicleViewHolderInterac
     }
 
     override fun setVehicleImage(vehicleImageId: Int) {
-        itemView.vehicleImage.setImageResource(vehicleImageId)
+        val imageCorner = itemView.context.resources.getDimension(R.dimen.rounded_image_corners).toInt()
+        val transformation = RoundedCornersTransformation(imageCorner, 0, RoundedCornersTransformation.CornerType.LEFT)
+        Picasso.get()
+                .load(vehicleImageId)
+                .transform(transformation)
+                .into(itemView.vehicleImage)
     }
 
     override fun showProgress() {

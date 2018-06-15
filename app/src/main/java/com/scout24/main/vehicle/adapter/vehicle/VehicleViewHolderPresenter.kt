@@ -22,7 +22,7 @@ class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
             showFallBackImage()
         }
         view.setTitle(vehicle.make + " " + vehicle.model)
-        view.setPrice(vehicle.price.toString())
+        view.setPrice("€ " + vehicle.price.toString())
         view.setFuelType(vehicle.fuel)
     }
 
