@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".main.vehicledetail.VehicleDetailActivity">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vehicleViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleViewPager">
+
+
+        <TextView
+            android:id="@+id/vehicleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            tools:text="BMW 6 Series" />
+
+        <TextView
+            android:id="@+id/vehiclePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:text="€ 30000000" />
+
+        <TextView
+            android:id="@+id/vehicleFuelType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:text="Gasoline" />
+
+        <TextView
+            android:id="@+id/vehicleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:text="No description available." />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
