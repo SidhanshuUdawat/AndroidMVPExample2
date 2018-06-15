@@ -10,7 +10,7 @@ import com.scout24.datasets.Vehicle
 class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
 
     companion object {
-        const val MAX_IMAGE_DIME = "640"
+        const val MAX_IMAGE_DIMEN = "640"
     }
 
     fun init(viewModel: VehicleViewModel) {
@@ -26,9 +26,13 @@ class VehicleViewHolderPresenter(val view: VehicleViewHolderMvp.View) {
         view.setFuelType(vehicle.fuel)
     }
 
+    /**
+     * Api provides list of images to display and their order is not always correct
+     * in order to display the most optimum image to display list is filter using dimension as 640
+     */
     fun getVehicleImageUrl(vehicle: Vehicle): String {
         return if (vehicle.images != null && vehicle.images.isNotEmpty()) {
-            val imageURL = vehicle.images.filter { image -> image.url.contains(MAX_IMAGE_DIME) }
+            val imageURL = vehicle.images.filter { image -> image.url.contains(MAX_IMAGE_DIMEN) }
             if (imageURL.isNotEmpty()) {
                 imageURL[0].url
             } else {
