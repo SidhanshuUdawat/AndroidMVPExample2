@@ -18,7 +18,7 @@ import com.scout24.di.provider.ApplicationBaseComponent
  * 4. Realm module - Local storage (Replacement of SQLite)
  */
 
-class Scout24Application : Application() {
+open class Scout24Application : Application() {
 
     lateinit var appProvider: ApplicationBaseComponent
 
@@ -31,7 +31,7 @@ class Scout24Application : Application() {
     /**
      * Creates application component and inject all the required dependencies
      */
-    private fun createAppComponent() {
+    open fun createAppComponent() {
         appProvider = DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))
                 .apiModule(ApiModule("http://private-fe87c-simpleclassifieds.apiary-mock.com/"))
