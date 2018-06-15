@@ -59,4 +59,12 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
         vehicleFuelType.text = fuelType
     }
 
+    override fun setMileage(mileage: String) {
+        vehicleMileage.text = mileage
+    }
+    
+    override fun setDescription(description: String) {
+        vehicleDescription.text = description
+    }
+
 }

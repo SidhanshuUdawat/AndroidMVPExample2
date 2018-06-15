@@ -12,6 +12,8 @@ interface VehicleDetailMvp {
         fun setTitle(title: String)
         fun setPrice(price: String)
         fun setFuelType(fuelType: String)
+        fun setDescription(description: String)
+        fun setMileage(mileage: String)
     }
 
     interface Interactor {

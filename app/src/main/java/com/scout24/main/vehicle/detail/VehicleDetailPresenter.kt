@@ -40,5 +40,7 @@ class VehicleDetailPresenter(private val view: VehicleDetailMvp.View, private va
         view.setTitle(vehicle.make + " " + vehicle.model)
         view.setPrice("€ " + vehicle.price.toString())
         view.setFuelType(vehicle.fuel)
+        view.setMileage(vehicle.mileage.toString())
+        view.setDescription(vehicle.description)
     }
 }
