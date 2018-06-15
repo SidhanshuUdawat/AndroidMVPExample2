@@ -1,4 +1,4 @@
-package com.scout24.main.vehicledetail
+package com.scout24.main.vehicle.detail
 
 import com.scout24.datasets.Vehicle
 import com.scout24.main.vehicle.VehicleMvp

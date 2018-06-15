@@ -1,4 +1,4 @@
-package com.scout24.main.vehicledetail
+package com.scout24.main.vehicle.detail
 
 /**
  * Created by Sid on 15/06/2018.

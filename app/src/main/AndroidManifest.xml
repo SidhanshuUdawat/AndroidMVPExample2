@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.vehicledetail.VehicleDetailActivity"></activity>
+        <activity android:name=".main.vehicle.detail.VehicleDetailActivity"></activity>
     </application>
 
 </manifest>

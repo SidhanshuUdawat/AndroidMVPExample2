@@ -2,9 +2,9 @@ package com.scout24.di.modules
 
 import com.scout24.main.vehicle.VehicleLocalDataSource
 import com.scout24.main.vehicle.VehicleMvp
-import com.scout24.main.vehicledetail.VehicleDetailInteractor
-import com.scout24.main.vehicledetail.VehicleDetailMvp
-import com.scout24.main.vehicledetail.VehicleDetailPresenter
+import com.scout24.main.vehicle.detail.VehicleDetailInteractor
+import com.scout24.main.vehicle.detail.VehicleDetailMvp
+import com.scout24.main.vehicle.detail.VehicleDetailPresenter
 import com.scout24.realm.RealmManager
 import com.scout24.sharedpref.SharedPreferencesProvider
 import dagger.Module
