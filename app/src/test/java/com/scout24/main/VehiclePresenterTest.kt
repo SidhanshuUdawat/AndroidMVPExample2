@@ -35,7 +35,6 @@ class VehiclePresenterTest {
         presenter.init()
         verify(view).showProgress()
         verify(interactor).getVehicles()
-        verifyNoMoreInteractions(view, interactor)
     }
 
     @Test
@@ -77,7 +76,6 @@ class VehiclePresenterTest {
         verify(view).showProgress()
         verify(view).hideError()
         verify(interactor).getVehicles()
-        verifyNoMoreInteractions(view, interactor)
     }
 
 

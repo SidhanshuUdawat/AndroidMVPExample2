@@ -55,6 +55,7 @@ class VehicleActivityTest {
     fun it_checks_for_vehicles_item_count_when_response_is_fetched() {
         RESTMockServer.whenGET(pathContains("/")).thenReturnFile(200, "api/vehicles.json")
         activityTestRule.launchActivity(intent)
+        Thread.sleep(100)
         onView(withId((R.id.vehicleRecyclerView))).check(RecyclerViewItemCountAssertion(5))
     }
 
