@@ -35,6 +35,7 @@ class VehicleMvp {
         fun deleteLocalData()
         fun storeVehicles(vehicle: Vehicle)
         fun getVehicles(): Observable<List<Vehicle>>
+        fun getVehichle(vehicleId: Int): Observable<Vehicle>
     }
 
 }

@@ -83,6 +83,21 @@ class VehicleLocalDataSource(private val realmManager: RealmMvp, private val pre
         }
     }
 
+    override fun getVehichle(vehicleId: Int): Observable<Vehicle> {
+        val realm = realmManager.realm
+        try {
+            val realmVehicle = realm.where(RealmVehicle::class.java)
+                    .equalTo("id", vehicleId).findFirst()
+            realmVehicle?.let { realmVehicle ->
+                val createVehicle = realmVehicle.asVehicleModel()
+                return Observable.just(createVehicle)
+            }
+            return Observable.just(null)
+        } finally {
+            realmManager.closeRealm(realm)
+        }
+    }
+
     /**
      * It converts Vehicle --> RealmVehicle
      */
