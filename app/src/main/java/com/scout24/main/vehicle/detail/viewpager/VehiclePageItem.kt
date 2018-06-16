@@ -14,7 +14,10 @@ import java.lang.Exception
 
 /**
  * Created by Sid on 16/06/2018.
+ *
+ * Custom View to hold vehicle images in the form of pages
  */
+
 class VehiclePageItem : ConstraintLayout, VehiclePageItemMvp.View {
 
     private val presenter = VehiclePageItemPresenter(this)

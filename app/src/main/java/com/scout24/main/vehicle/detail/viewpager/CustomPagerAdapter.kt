@@ -8,7 +8,10 @@ import com.scout24.datasets.Images
 
 /**
  * Created by Sid on 16/06/2018.
+ *
+ * Pager adapter to hold Custom Views
  */
+
 class CustomPagerAdapter(private val vehicleImages: List<Images>) : PagerAdapter() {
 
     override fun instantiateItem(collection: ViewGroup, position: Int): Any {

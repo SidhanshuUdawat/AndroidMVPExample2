@@ -10,6 +10,7 @@ import rx.subscriptions.CompositeSubscription
 /**
  * Created by Sid on 15/06/2018.
  */
+
 class VehicleDetailPresenter(private val view: VehicleDetailMvp.View, private val interactor: VehicleDetailMvp.Interactor) {
 
     private val compositeSubscription = CompositeSubscription()

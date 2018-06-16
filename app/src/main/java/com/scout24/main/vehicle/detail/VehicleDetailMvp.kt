@@ -7,6 +7,7 @@ import rx.Observable
 /**
  * Created by Sid on 15/06/2018.
  */
+
 interface VehicleDetailMvp {
 
     interface View {
