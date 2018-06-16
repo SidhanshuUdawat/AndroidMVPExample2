@@ -4,16 +4,20 @@ import android.content.Intent
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import android.support.test.espresso.intent.rule.IntentsTestRule
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import android.support.test.espresso.matcher.ViewMatchers.withId
+import android.support.test.espresso.matcher.ViewMatchers
+import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.runner.AndroidJUnit4
+import android.support.v7.widget.RecyclerView
+import android.view.View
 import com.scout24.R
 import com.scout24.main.vehicle.VehicleActivity
 import com.scout24.util.RecyclerViewItemCountAssertion
 import io.appflate.restmock.RESTMockServer
 import io.appflate.restmock.utils.RequestMatchers.pathContains
 import org.hamcrest.Matchers.not
+import org.hamcrest.core.AllOf
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -56,7 +60,7 @@ class VehicleActivityTest {
         RESTMockServer.whenGET(pathContains("/")).thenReturnFile(200, "api/vehicles.json")
         activityTestRule.launchActivity(intent)
         Thread.sleep(100)
-        onView(withId((R.id.vehicleRecyclerView))).check(RecyclerViewItemCountAssertion(5))
+        onView(withId((R.id.vehicleRecyclerView))).check(RecyclerViewItemCountAssertion(6))
     }
 
     @Test
@@ -69,7 +73,7 @@ class VehicleActivityTest {
         RESTMockServer.reset()
         RESTMockServer.whenGET(pathContains("/")).thenReturnFile(200, "api/vehicles.json")
         onView(withId((R.id.errorRetryBtn))).perform(click())
-        onView(withId((R.id.vehicleRecyclerView))).check(RecyclerViewItemCountAssertion(5))
+        onView(withId((R.id.vehicleRecyclerView))).check(RecyclerViewItemCountAssertion(6))
     }
 
     @Test
@@ -83,5 +87,14 @@ class VehicleActivityTest {
         RESTMockServer.whenGET(pathContains("/")).thenReturnEmpty(200)
         onView(withId((R.id.errorRetryBtn))).perform(click())
         onView(withId((R.id.errorView))).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun it_shows_advert_on_4_th_position() {
+        RESTMockServer.whenGET(pathContains("/")).thenReturnFile(200, "api/vehicles.json")
+        activityTestRule.launchActivity(intent)
+        Thread.sleep(100)
+        onView(withId((R.id.vehicleRecyclerView))).perform(scrollToPosition<RecyclerView.ViewHolder>(4))
+        onView(AllOf.allOf<View>(withId(R.id.vehicleRecyclerView), withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE))).check(matches(isDisplayed()))
     }
 }
