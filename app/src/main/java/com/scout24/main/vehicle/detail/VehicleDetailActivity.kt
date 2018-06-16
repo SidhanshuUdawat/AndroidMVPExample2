@@ -57,6 +57,7 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
         pageItems = ArrayList()
         pageAdapter = CustomPagerAdapter(pageItems)
         vehicleViewPager.adapter = pageAdapter
+        vehicleViewPager.offscreenPageLimit = 3
     }
 
     override fun addItemsToViewPager(newPageItems: List<Images>) {

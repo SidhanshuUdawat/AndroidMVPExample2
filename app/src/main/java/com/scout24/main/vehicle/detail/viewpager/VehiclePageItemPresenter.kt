@@ -15,4 +15,12 @@ class VehiclePageItemPresenter(val view: VehiclePageItemMvp.View) {
             view.loadImage(R.drawable.no_image_available)
         }
     }
+
+    fun onImageLoadingSuccess() {
+        view.hideProgress()
+    }
+
+    fun onImageLoadingFailed() {
+        view.hideProgress()
+    }
 }

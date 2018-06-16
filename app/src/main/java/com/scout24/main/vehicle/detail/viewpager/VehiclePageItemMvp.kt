@@ -11,5 +11,7 @@ interface VehiclePageItemMvp {
     interface View {
         fun loadImage(imageUrl: String)
         fun loadImage(@DrawableRes resourceId: Int)
+        fun showProgress()
+        fun hideProgress()
     }
 }
