@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Scout24 Task</string>
     <string name="oops_something_went_wrong_try_again">Oops, something went wrong. Try again</string>
+    <string name="advert_text">Your advert appears here !</string>
+    <string name="vehicle_details">Details</string>
 </resources>

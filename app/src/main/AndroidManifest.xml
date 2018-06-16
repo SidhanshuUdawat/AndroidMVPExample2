@@ -14,14 +14,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.vehicle.VehicleActivity">
+
+        <activity
+            android:name=".main.vehicle.VehicleActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.vehicle.detail.VehicleDetailActivity"></activity>
+
+        <activity
+            android:name=".main.vehicle.detail.VehicleDetailActivity"
+            android:label="@string/vehicle_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/NavolutionAppCompatTheme" />
     </application>
 
 </manifest>

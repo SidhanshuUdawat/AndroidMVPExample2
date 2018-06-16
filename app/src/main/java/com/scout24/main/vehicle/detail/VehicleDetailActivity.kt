@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import com.scout24.R
 import com.scout24.Scout24Application
 import com.scout24.datasets.Images
@@ -19,8 +20,8 @@ import javax.inject.Inject
 
 class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
 
-    lateinit var pageAdapter: CustomPagerAdapter
-    lateinit var pageItems: MutableList<Images>
+    private lateinit var pageAdapter: CustomPagerAdapter
+    private lateinit var pageItems: MutableList<Images>
 
     @Inject
     lateinit var presenter: VehicleDetailPresenter
@@ -39,6 +40,7 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vehicle_detail)
+        initToolbar()
         setupImagePages()
         injectDependencies()
     }
@@ -58,6 +60,19 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
         pageAdapter = CustomPagerAdapter(pageItems)
         vehicleViewPager.adapter = pageAdapter
         vehicleViewPager.offscreenPageLimit = 3
+    }
+
+    private fun initToolbar() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun addItemsToViewPager(newPageItems: List<Images>) {

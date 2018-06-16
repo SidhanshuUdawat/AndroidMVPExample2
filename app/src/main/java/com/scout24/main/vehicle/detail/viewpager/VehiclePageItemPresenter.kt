@@ -13,6 +13,7 @@ class VehiclePageItemPresenter(val view: VehiclePageItemMvp.View) {
         if (images.url.isNotEmpty()) {
             view.loadImage(images.url)
         } else {
+            view.hideProgress()
             view.loadImage(R.drawable.no_image_available)
         }
     }

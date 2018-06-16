@@ -2,6 +2,7 @@ package com.scout24.main.vehicle
 
 import com.scout24.datasets.Vehicle
 import com.scout24.main.vehicle.adapter.ListItem
+import com.scout24.main.vehicle.adapter.vehicle.VehicleAdvertViewModel
 import com.scout24.main.vehicle.adapter.vehicle.VehicleViewModel
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
@@ -17,6 +18,10 @@ import rx.subscriptions.CompositeSubscription
 class VehiclePresenter(private val view: VehicleMvp.View, private val interactor: VehicleMvp.Interactor) {
 
     private val compositeSubscription = CompositeSubscription()
+
+    companion object {
+        const val ADVERT_INSERT_POSTIION = 3
+    }
 
     /**
      * Initial setup
@@ -72,14 +77,22 @@ class VehiclePresenter(private val view: VehicleMvp.View, private val interactor
      * This converts the API Vehicle data model to Vehicle view model.
      */
     private fun processVehicles(vehicles: List<Vehicle>) {
+        var counter = 0
         val viewModelList = ArrayList<ListItem>()
-        for (vehicle in vehicles) {
+        for (i in vehicles.indices) {
+            val vehicle = vehicles[i]
             val vehicleViewModel = VehicleViewModel(vehicle)
             viewModelList.add(vehicleViewModel)
+
+            counter++
+            if (counter == ADVERT_INSERT_POSTIION) {
+                viewModelList.add(VehicleAdvertViewModel())
+                counter = 0
+            }
         }
         view.updateList(viewModelList)
     }
-
+    
     fun onRetryClicked() {
         view.hideError()
         getVehicles()

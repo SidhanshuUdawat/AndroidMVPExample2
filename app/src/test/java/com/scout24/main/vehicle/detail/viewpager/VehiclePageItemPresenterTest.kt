@@ -32,6 +32,7 @@ class VehiclePageItemPresenterTest {
     fun it_loads_image_from_resource_when_image_url_is_empty() {
         val images = Images("")
         presenter.bind(images)
+        verify(view).hideProgress()
         verify(view).loadImage(R.drawable.no_image_available)
         verifyNoMoreInteractions(view)
     }
