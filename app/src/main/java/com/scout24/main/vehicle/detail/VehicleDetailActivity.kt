@@ -55,6 +55,9 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
         presenter.init()
     }
 
+    /**
+     *  Initializing view pager for loading custom views
+     */
     private fun setupImagePages() {
         pageItems = ArrayList()
         pageAdapter = CustomPagerAdapter(pageItems)

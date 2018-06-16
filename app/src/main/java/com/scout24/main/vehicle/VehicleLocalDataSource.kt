@@ -83,6 +83,9 @@ class VehicleLocalDataSource(private val realmManager: RealmMvp, private val pre
         }
     }
 
+    /**
+     * Looks for the locally saved vehicle with specific ID and converts RealmVehicle to Vehicle
+     */
     override fun getVehichle(vehicleId: Int): Observable<Vehicle> {
         val realm = realmManager.realm
         try {

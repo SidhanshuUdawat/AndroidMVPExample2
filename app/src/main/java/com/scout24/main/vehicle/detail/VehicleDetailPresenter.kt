@@ -43,6 +43,9 @@ class VehicleDetailPresenter(private val view: VehicleDetailMvp.View, private va
         loadImagePages(vehicle)
     }
 
+    /**
+     * Updates the view pager with list of images, if no images are present then an empty list is passed
+     */
     private fun loadImagePages(vehicle: Vehicle) {
         if (vehicle.images != null && vehicle.images.isNotEmpty()) {
             view.addItemsToViewPager(vehicle.images)

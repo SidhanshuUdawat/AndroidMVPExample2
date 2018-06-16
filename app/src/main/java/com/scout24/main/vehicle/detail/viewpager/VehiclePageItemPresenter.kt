@@ -9,6 +9,9 @@ import com.scout24.datasets.Images
 
 class VehiclePageItemPresenter(val view: VehiclePageItemMvp.View) {
 
+    /**
+     * Loads image with the provided url or with a fallback drawable if image has empty url
+     */
     fun bind(images: Images) {
         if (images.url.isNotEmpty()) {
             view.loadImage(images.url)
