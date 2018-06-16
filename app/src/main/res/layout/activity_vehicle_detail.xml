@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,21 @@
         android:id="@+id/vehicleViewPager"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/viewPagerIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vehicleViewPager"
+        app:layout_constraintLeft_toRightOf="@+id/vehicleViewPager"
+        app:layout_constraintRight_toLeftOf="@+id/vehicleViewPager"
+        app:piv_animationType="worm"
+        app:piv_dynamicCount="true"
+        app:piv_interactiveAnimation="true"
+        app:piv_viewPager="@id/vehicleViewPager"
+        attrs:piv_padding="12dp"
+        attrs:piv_radius="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.scout24.R
 import com.scout24.Scout24Application
+import com.scout24.datasets.Images
 import com.scout24.di.components.DaggerVehicleDetailComponent
 import com.scout24.di.modules.VehicleDetailModule
+import com.scout24.main.vehicle.detail.viewpager.CustomPagerAdapter
 import kotlinx.android.synthetic.main.activity_vehicle_detail.*
 import javax.inject.Inject
 
@@ -16,6 +18,12 @@ import javax.inject.Inject
  */
 
 class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
+
+    lateinit var pageAdapter: CustomPagerAdapter
+    lateinit var pageItems: MutableList<Images>
+
+    @Inject
+    lateinit var presenter: VehicleDetailPresenter
 
     companion object {
         private const val VEHICLE_ID = "vehicle_id"
@@ -28,12 +36,10 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
         }
     }
 
-    @Inject
-    lateinit var presenter: VehicleDetailPresenter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vehicle_detail)
+        setupImagePages()
         injectDependencies()
     }
 
@@ -45,6 +51,17 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
                 .vehicleDetailModule(VehicleDetailModule(this, vehicleId))
                 .build().inject(this)
         presenter.init()
+    }
+
+    private fun setupImagePages() {
+        pageItems = ArrayList()
+        pageAdapter = CustomPagerAdapter(pageItems)
+        vehicleViewPager.adapter = pageAdapter
+    }
+
+    override fun addItemsToViewPager(newPageItems: List<Images>) {
+        pageItems.addAll(newPageItems)
+        pageAdapter.notifyDataSetChanged()
     }
 
     override fun setTitle(title: String) {
@@ -62,7 +79,7 @@ class VehicleDetailActivity : AppCompatActivity(), VehicleDetailMvp.View {
     override fun setMileage(mileage: String) {
         vehicleMileage.text = mileage
     }
-    
+
     override fun setDescription(description: String) {
         vehicleDescription.text = description
     }

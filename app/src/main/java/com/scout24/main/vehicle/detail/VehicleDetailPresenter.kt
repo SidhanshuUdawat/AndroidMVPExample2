@@ -1,5 +1,6 @@
 package com.scout24.main.vehicle.detail
 
+import com.scout24.datasets.Images
 import com.scout24.datasets.Vehicle
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
@@ -37,6 +38,22 @@ class VehicleDetailPresenter(private val view: VehicleDetailMvp.View, private va
     }
 
     fun onFetchingVehicleDataSuccess(vehicle: Vehicle) {
+        loadViews(vehicle)
+        loadImagePages(vehicle)
+    }
+
+    private fun loadImagePages(vehicle: Vehicle) {
+        if (vehicle.images != null && vehicle.images.isNotEmpty()) {
+            view.addItemsToViewPager(vehicle.images)
+        } else {
+            val emptyImageItem = Images("")
+            val emptyImageList = ArrayList<Images>()
+            emptyImageList.add(emptyImageItem)
+            view.addItemsToViewPager(emptyImageList)
+        }
+    }
+
+    private fun loadViews(vehicle: Vehicle) {
         view.setTitle(vehicle.make + " " + vehicle.model)
         view.setPrice("€ " + vehicle.price.toString())
         view.setFuelType(vehicle.fuel)

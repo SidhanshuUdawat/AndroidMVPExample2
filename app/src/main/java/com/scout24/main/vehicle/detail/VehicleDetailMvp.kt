@@ -1,5 +1,6 @@
 package com.scout24.main.vehicle.detail
 
+import com.scout24.datasets.Images
 import com.scout24.datasets.Vehicle
 import rx.Observable
 
@@ -9,6 +10,7 @@ import rx.Observable
 interface VehicleDetailMvp {
 
     interface View {
+        fun addItemsToViewPager(newPageItems: List<Images>)
         fun setTitle(title: String)
         fun setPrice(price: String)
         fun setFuelType(fuelType: String)
